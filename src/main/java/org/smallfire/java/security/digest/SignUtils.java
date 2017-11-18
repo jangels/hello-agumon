@@ -61,7 +61,7 @@ public class SignUtils {
                     keyList.add(key);
                 }
             }
-            Collections.sort(keyList, new Comparator() {
+          /*  Collections.sort(keyList, new Comparator() {
                 public int compare(String o1, String o2) {
                     int length = Math.min(o1.length(), o2.length());
 
@@ -77,7 +77,7 @@ public class SignUtils {
                     return o1.length() - o2.length();
                 }
 
-            });
+            });*/
 
             for (int var7 = 0; var7 < keyList.size(); ++var7) {
                 key = (String) keyList.get(var7);

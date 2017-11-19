@@ -5,7 +5,6 @@ import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.smallfire.java.bean.RequestBean;
 import org.smallfire.java.exception.BusinessException;
-import org.smallfire.java.exception.SdkExceptionCode;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.*;
@@ -37,7 +36,7 @@ public class SignUtils {
                 return DigestUtils.sha256Hex(content).toUpperCase();
             }
 
-            throw new BusinessException(SdkExceptionCode.UNSUPPORT_DIGEST_TYPE);
+            throw new BusinessException("20001", "散列类型不支持");
         }
     }
 
@@ -54,7 +53,7 @@ public class SignUtils {
             String result = sign(content, type);
             return result.equals(sign);
         } catch (Exception e) {
-            throw new BusinessException(SdkExceptionCode.VERIFY_ERROR);
+            throw new BusinessException("20000", "验签失败");
         }
     }
 
@@ -109,7 +108,7 @@ public class SignUtils {
         try {
             beanMap = BeanUtils.describe(bean);
         } catch (Exception e) {
-            throw new BusinessException(SdkExceptionCode.BEAN_CONVERT_ERROR);
+            throw new BusinessException("20002", "bean转化map错误");
         }
         beanMap.remove("class");
         return getSortParams(beanMap);

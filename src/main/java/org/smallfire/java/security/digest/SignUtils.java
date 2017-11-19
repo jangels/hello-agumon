@@ -1,10 +1,13 @@
 package org.smallfire.java.security.digest;
 
+import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.smallfire.java.bean.RequestBean;
 import org.smallfire.java.exception.BusinessException;
 import org.smallfire.java.exception.SdkExceptionCode;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 
 /**
@@ -18,6 +21,9 @@ public class SignUtils {
         return sign(content, SignUtils.DigestType.MD5);
     }
 
+    public static String sign(Object bean, String appSecret) {
+        return sign(appSecret + getSortParams(bean) + appSecret);
+    }
 
     public static String sign(String content, SignUtils.DigestType type) {
         if (SignUtils.DigestType.NONE.equals(type)) {
@@ -33,6 +39,14 @@ public class SignUtils {
 
             throw new BusinessException(SdkExceptionCode.UNSUPPORT_DIGEST_TYPE);
         }
+    }
+
+    public static boolean verify(String sign, String content) {
+        return verify(sign, content, SignUtils.DigestType.MD5);
+    }
+
+    public static boolean verify(String sign, Object bean,String appSecret) {
+        return verify(sign, appSecret + getSortParams(bean)+appSecret, SignUtils.DigestType.MD5);
     }
 
     public static boolean verify(String sign, String content, SignUtils.DigestType type) {
@@ -61,7 +75,7 @@ public class SignUtils {
                     keyList.add(key);
                 }
             }
-          /*  Collections.sort(keyList, new Comparator() {
+            Collections.sort(keyList, new Comparator<String>() {
                 public int compare(String o1, String o2) {
                     int length = Math.min(o1.length(), o2.length());
 
@@ -77,7 +91,7 @@ public class SignUtils {
                     return o1.length() - o2.length();
                 }
 
-            });*/
+            });
 
             for (int var7 = 0; var7 < keyList.size(); ++var7) {
                 key = (String) keyList.get(var7);
@@ -88,6 +102,17 @@ public class SignUtils {
         } else {
             return "";
         }
+    }
+
+    public static String getSortParams(Object bean) {
+        Map<String, String> beanMap = null;
+        try {
+            beanMap = BeanUtils.describe(bean);
+        } catch (Exception e) {
+            throw new BusinessException(SdkExceptionCode.BEAN_CONVERT_ERROR);
+        }
+        beanMap.remove("class");
+        return getSortParams(beanMap);
     }
 
     public enum DigestType {
@@ -105,5 +130,23 @@ public class SignUtils {
         public String toString() {
             return this.value;
         }
+    }
+
+    public static void main(String[] args) throws IllegalAccessException, NoSuchMethodException, InvocationTargetException {
+
+        String appSecret = UUID.randomUUID().toString();
+
+        RequestBean bean = new RequestBean();
+        bean.setTimestamp(System.currentTimeMillis());
+        bean.setId("11111");
+
+        System.out.println(getSortParams(bean));
+        // 签名
+        String sign = sign(bean,appSecret);
+        System.out.println("签名为=====>" + sign);
+
+        // 验签
+        boolean verifyResult = verify(sign, bean,appSecret);
+        System.out.println("验签结果=====>" + verifyResult);
     }
 }

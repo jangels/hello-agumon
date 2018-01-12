@@ -32,9 +32,6 @@ public class SignUtils {
             if (DigestType.MD5.equals(type)) {
                 return DigestUtils.md5Hex(content).toUpperCase();
             }
-            if (DigestType.SHA256.equals(type)) {
-                return DigestUtils.sha256Hex(content).toUpperCase();
-            }
 
             throw new BusinessException("20001", "散列类型不支持");
         }

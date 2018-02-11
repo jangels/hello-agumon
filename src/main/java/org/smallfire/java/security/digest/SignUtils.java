@@ -1,5 +1,6 @@
 package org.smallfire.java.security.digest;
 
+import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -20,7 +21,7 @@ public class SignUtils {
         return sign(content, SignUtils.DigestType.MD5);
     }
 
-    public static String sign(Object bean, String appSecret) {
+    public static String sign(JSONObject bean, String appSecret) {
         return sign(appSecret + getSortParams(bean) + appSecret);
     }
 
@@ -41,7 +42,7 @@ public class SignUtils {
         return verify(sign, content, SignUtils.DigestType.MD5);
     }
 
-    public static boolean verify(String sign, Object bean,String appSecret) {
+    public static boolean verify(String sign, JSONObject bean,String appSecret) {
         return verify(sign, appSecret + getSortParams(bean)+appSecret, SignUtils.DigestType.MD5);
     }
 
@@ -100,6 +101,52 @@ public class SignUtils {
         }
     }
 
+
+    public static String getSortParams(JSONObject params) {
+        if (params != null && !params.isEmpty()) {
+            params.remove("sign");
+            String contnt = "";
+            Set keySet = params.keySet();
+            ArrayList keyList = new ArrayList();
+            Iterator i = keySet.iterator();
+
+            String key;
+            while (i.hasNext()) {
+                key = (String) i.next();
+                String value =params.get(key).toString();
+                if (!StringUtils.isEmpty(value)) {
+                    keyList.add(key);
+                }
+            }
+            Collections.sort(keyList, new Comparator<String>() {
+                public int compare(String o1, String o2) {
+                    int length = Math.min(o1.length(), o2.length());
+
+                    for (int i = 0; i < length; ++i) {
+                        char c1 = o1.charAt(i);
+                        char c2 = o2.charAt(i);
+                        int r = c1 - c2;
+                        if (r != 0) {
+                            return r;
+                        }
+                    }
+
+                    return o1.length() - o2.length();
+                }
+
+            });
+
+            for (int var7 = 0; var7 < keyList.size(); ++var7) {
+                key = (String) keyList.get(var7);
+                contnt = contnt + key + params.get(key).toString();
+            }
+
+            return contnt;
+        } else {
+            return "";
+        }
+    }
+
     public static String getSortParams(Object bean) {
         Map<String, String> beanMap = null;
         try {
@@ -132,9 +179,9 @@ public class SignUtils {
 
         String appSecret = UUID.randomUUID().toString();
 
-        RequestBean bean = new RequestBean();
-        bean.setTimestamp(System.currentTimeMillis());
-        bean.setId("11111");
+        JSONObject bean = new JSONObject();
+        bean.put("k1","v1");
+        bean.put("k2",2);
 
         System.out.println(getSortParams(bean));
         // 签名

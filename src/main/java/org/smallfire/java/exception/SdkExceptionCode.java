@@ -34,4 +34,5 @@ public class SdkExceptionCode {
     public static final CodeMessage BOUNCY_CASTLE_PROVIDER_NO_EXIS = new CodeMessage("20014", "加密算法不存在");
     public static final CodeMessage ENCRYPT_FAIL = new CodeMessage("20015", "加密失败");
     public static final CodeMessage DECRYPT_FAIL = new CodeMessage("20016", "解密失败");
+    public static final CodeMessage HTTP_CODE_WRONG = new CodeMessage("SJ61000", "Http请求返回码错误");
 }

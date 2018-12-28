@@ -1,0 +1,70 @@
+Matt Stine对Cloud Native的定义
+Matt Stine 认为Cloud Native包括：
+
+DevOps
+
+持续交付（Continuous Delivery）
+
+微服务（Microservices）
+
+敏捷基础设施（Agile Infrastructure）
+
+康威定律（Conways Law）
+
+以及根据商业能力对公司进行重组等内容。
+
+他认为符合Cloud Native的应用包含的主要特征为：
+
+十二因子应用（Twelve-Factor）
+
+微服务架构（Microservices）
+
+自服务敏捷基础设施（Self-Service Agile Infrastructure）
+
+基于API的协作（API-Based Collaboration）
+
+反脆弱性（Anti-fragility）
+
+CNCF对Cloud Native应用的定义
+针对Cloud Native的工具链、实践，Linux Foundation 建立了一个专门的组织Cloud Native Computing Foundation (CNCF)。CNCF（云原生计算基金会）是一个非营利组织，它诞生于2015年7月，受到互联网规模计算的启发，期望通过技术优点和最终用户价值创造出一系列新的通用容器技术，致力于推动Cloud Native的技术和服务的发展。
+
+CNCF对于Cloud Native应用的定义，是使用开源工具栈来实现如下特征:
+
+容器化（Containerized）：每个部分（应用程序，进程等）都封装在自己的容器中。这有助于重复性，透明度和资源隔离。
+
+动态编排（Dynamically orchestrated）：动态的调度和管理容器以优化资源利用。
+
+面向微服务（Microservices oriented）：应用程序基于微服务架构，显著提高架构演进的灵活性和可维护性。
+
+CNCF更偏向于工具以及合理的系统架构的使用，而没有涉及组织结构以及流程、管理等方面的内容。
+
+Gartner对Cloud Native应用的定义
+Gartner认为Cloud Native应用的关键特征为：
+
+按需（ on-demand ）
+
+自服务（ self-service ）
+
+快速、弹性伸缩（ scales rapidly and elastically ）
+
+可计量的消费（ meters consumption ）
+
+这个描述更加贴近与云平台本身的特性，比较笼统。
+
+Netflix对Cloud Native应用的定义
+Adrian Cockcroft（AWS Cloud Architecture Strategy VP，前 Netflix Cloud Architect）认为，Cloud Native是：
+
+基于不可靠、易失效的基础设施（ephemeral and assumed broken components）来构建高度敏捷（highly agile）、高可用（highly available）服务
+
+其目的是为了达到伸缩性（Scalability）、可用性（Availability）、敏捷（Agility）、效率（Efficiency）
+
+实现的原则为关注点分离（Separation of Concerns）、反脆弱性（Anti-Fragility）、高度信任的组织（High trust organization）
+
+特点在于基于公有云（Public cloud）、微服务（Micro-services）、反范式化数据（De-normalized data）、混沌引擎（Chaos Engines）、持续部署（Continuous Deployment）、DevOps等。
+
+Adrian Cockcroft对于Cloud Native的定义囊括了基础设施、系统架构、数据以及组织等各个方面，比较全面，是一份比较好的参考模型。
+--------------------- 
+作者：looook 
+来源：CSDN 
+原文：https://blog.csdn.net/looook/article/details/82897565 
+版权声明：本文为博主原创文章，转载请附上博文链接！

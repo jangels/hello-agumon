@@ -16,6 +16,7 @@ import java.util.Map;
 import static org.junit.Assert.*;
 
 /**
+ * 谷歌工具类
  * Created by lzh on 2018/12/28.
  */
 public class HelloGuavaTest {

@@ -61,10 +61,10 @@ public class SocialStatisticsExcel {
 
     public static void main(String[] args) throws IOException {
 
-        AES256Cipher cipherb64 = new AES256Cipher("8d537926b4b447b2b54d50a3fa7833ed", Decrypt.HEX);
-
-        System.out.println(cipherb64.encrypt2Hex("37148219901214483X"));
+//        AES256Cipher cipherb64 = new AES256Cipher("8d537926b4b447b2b54d50a3fa7833ed", Decrypt.HEX);
+//
+//        System.out.println(cipherb64.encrypt2Hex("37148219901214483X"));
 //        System.out.println(getDecryptIdNo("D84620818061DE4B4A6338B01B8E8E28AC102969ED1DD788087FD3B2CB4495BA"));
-//        write("F://socialData.xls");
+        write("F://socialData.xls");
     }
 }

@@ -1,6 +1,7 @@
 package org.smallfire.java.guava;
 
 import com.google.common.base.Charsets;
+import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Maps;
 import com.google.common.io.Files;
@@ -60,6 +61,12 @@ public class HelloGuavaTest {
         }
 
         System.out.println(lines);
+    }
+
+    @Test
+    public void testJoiner() {
+        String str = Joiner.on(',').join(1, 2, 3);
+        System.out.println(str);
     }
 
 }

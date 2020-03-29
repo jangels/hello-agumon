@@ -21,11 +21,14 @@ public class TestMain {
         consumer.accept("he!");
 
 
+        print007Date("2020");
+    }
+
+    public static void print007Date(String firstDay) throws ParseException {
         // 打印某一年,每一个日期能被7整除的日期, 格式 20200207
-
-
         Calendar cal = Calendar.getInstance();
-        String firstDay = "20210101";
+
+        firstDay = firstDay + "0101";
 
         SimpleDateFormat sdf = new SimpleDateFormat(FORMAT);
         Date firstDayDate = sdf.parse(firstDay);

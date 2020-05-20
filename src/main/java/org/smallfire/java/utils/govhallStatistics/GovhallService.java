@@ -306,7 +306,7 @@ public class GovhallService {
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
         String time = sdf.format(date);
-        String path = "F:\\政务大厅事项统计_" + time + ".xls";
+        String path = "/Users/liuzhenhua/excel/20191024-1.xls";
         Excel.writer(data, path);
     }
 }

@@ -4,24 +4,24 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.function.Consumer;
 
 public class TestMain {
 
     public static final String FORMAT = "yyyyMMdd";
 
-    public static void main(String[] args) throws ParseException {
-//        for (int i = 0; i < 200; i++) {
-//            System.out.println(i+" 的ascii为：" + (char) i);
-//        }
-        Runnable r = () -> System.out.println("hello lambda!");
-        r.run();
+    public static final HashMap map = new HashMap(200);
 
-        Consumer<String> consumer = x -> System.out.println(x);
-        consumer.accept("he!");
+    public static void main(String[] args) throws ParseException, InterruptedException {
 
-
-        print007Date("2020");
+        for(int i = 0;i<1000000;i++){
+            for(int j = 0; j<10000;j++){
+                TestMain obj = new TestMain();
+            }
+            System.out.println(i);
+            Thread.sleep(1);
+        }
     }
 
     public static void print007Date(String firstDay) throws ParseException {

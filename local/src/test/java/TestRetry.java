@@ -3,6 +3,7 @@ import com.github.rholder.retry.RetryerBuilder;
 import com.github.rholder.retry.StopStrategies;
 import com.github.rholder.retry.WaitStrategies;
 import com.google.common.base.Predicates;
+import org.springframework.scheduling.annotation.Async;
 
 import java.util.Random;
 import java.util.concurrent.Callable;
@@ -11,10 +12,22 @@ import java.util.concurrent.TimeUnit;
 public class TestRetry {
 
     public static void main(String[] args) {
+
+        new Thread(() -> {
+            retryHandle();
+        }).start();
+
+
+        System.out.println("啦啦啦");
+
+
+    }
+
+    private static void retryHandle() {
         Retryer retryer = RetryerBuilder.<Boolean>newBuilder()
                 .retryIfException() // 抛出异常会进行重试
                 .retryIfResult(Predicates.equalTo(false)) // 如果接口返回的结果不符合预期,也需要重试
-                .withWaitStrategy(WaitStrategies.incrementingWait(10, TimeUnit.SECONDS,10, TimeUnit.SECONDS)) // 重试策略, 此处设置的是重试间隔时间
+                .withWaitStrategy(WaitStrategies.incrementingWait(10, TimeUnit.SECONDS, 10, TimeUnit.SECONDS)) // 重试策略, 此处设置的是重试间隔时间
                 .withStopStrategy(StopStrategies.stopAfterAttempt(5)) // 重试次数
                 .withRetryListener(new MyRetryListener<>())
                 .build();
@@ -27,8 +40,6 @@ public class TestRetry {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-
-
     }
 
 

@@ -2,7 +2,8 @@
 
 
 
-![avatar](https://baike.baidu.com/pic/%E4%BA%9A%E5%8F%A4%E5%85%BD/7602336/0/d31b0ef41bd5ad6e54756efe8fcb39dbb6fd3c11?fr=lemma&ct=single)
+![Agumon](https://upload-images.jianshu.io/upload_images/5377881-25a31484ebe5e387.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 
 个人练习项目
 

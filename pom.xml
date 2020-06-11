@@ -6,6 +6,7 @@
 
     <groupId>org.smallfire</groupId>
     <artifactId>hello-agumon</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -15,6 +16,13 @@
     </properties>
 
     <dependencies>
+
+        <dependency>
+            <groupId>com.github.rholder</groupId>
+            <artifactId>guava-retrying</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+
 
         <!-- 以下是集成camel -->
         <dependency>
@@ -142,8 +150,6 @@
         </dependency>
 
 
-
-
         <!-- 整合RocketMq -->
         <dependency>
             <groupId>org.apache.rocketmq</groupId>
@@ -164,6 +170,10 @@
         </dependency>
 
     </dependencies>
+
+    <modules>
+        <module>local</module>
+    </modules>
 
     <build>
         <finalName>Spring</finalName>

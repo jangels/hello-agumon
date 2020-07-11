@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>框架页面布局</title>
+    <style type="text/css">
+
+        #head{
+            height: 120px;
+            background-color: green;
+        }
+
+        #body{
+            height: 400px;
+            background-color: bisque;
+        }
+
+        #bottom{
+            height: 80px;
+            background-color: blue;
+        }
+
+        #body_left{
+            height: 400px;
+            width: 20%;
+            background-color: gray;
+            float:left;
+        }
+
+        #body_right{
+            height: 400px;
+            width: 80%;
+            background-color: red;
+            float:left;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <div id = "head">
+            head
+        </div>
+        <div id = "body">
+            <div id="body_left" >
+                left
+            </div>
+            <div id="body_right" >
+                right
+            </div>
+        </div>
+        <div id = "bottom">
+            bottom
+        </div>
+    </div>
+
+</body>
+</html>

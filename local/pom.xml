@@ -11,6 +11,14 @@
 
     <groupId>org.smallfire</groupId>
     <artifactId>local</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>3.17</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
 
 </project>

@@ -1,4 +1,4 @@
-package guava;
+package java8;
 
 
 import lombok.Data;
@@ -9,7 +9,7 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 @Data
-public class LambdaExpressionPractice {
+public class LambdaExpressionTest {
 
     static String str = "lzh";
 

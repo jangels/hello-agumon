@@ -1,4 +1,4 @@
-package org.smallfire.java.base;
+package org.smallfire.java.arch.base;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package org.smallfire.java.rocketmq;
+package org.smallfire.java.arch.distributed.mq.rocketmq;
 
 import org.apache.rocketmq.client.exception.MQClientException;
 import org.apache.rocketmq.client.producer.DefaultMQProducer;

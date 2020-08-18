@@ -1,4 +1,4 @@
-package org.smallfire.java.rocketmq;
+package org.smallfire.java.arch.distributed.mq.rocketmq;
 
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;

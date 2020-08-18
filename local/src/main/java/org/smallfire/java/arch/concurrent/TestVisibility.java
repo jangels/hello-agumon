@@ -11,7 +11,7 @@ package org.smallfire.java.arch.concurrent;
  * 有序性
  *
  */
-public class TestVolatile {
+public class TestVisibility {
 
     /**
      * 未添加 volatile 关键字, 成员变量线程间不可见
@@ -50,3 +50,5 @@ public class TestVolatile {
         t2.join();
     }
 }
+
+

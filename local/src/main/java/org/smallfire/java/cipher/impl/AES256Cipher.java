@@ -42,7 +42,7 @@ public class AES256Cipher extends AbstractCipher implements Encrypt, Decrypt {
 	/**
 	 * 生成秘钥的长度为256位
 	 */
-	public static final Integer KEY_LENGTH = 256;
+	public static final Integer KEY_LENGTH = 128;
 
 	/**
 	 * 秘钥
@@ -182,7 +182,7 @@ public class AES256Cipher extends AbstractCipher implements Encrypt, Decrypt {
 	public static void main(String[] args) throws IOException {
 		String key = AES256Cipher.generateKey2Hex();
 		System.out.println("key:"+key);
-		AES256Cipher cipher = new AES256Cipher(key, Decrypt.HEX);
+		/*AES256Cipher cipher = new AES256Cipher(key, Decrypt.HEX);
 		String info = "加密信息";
 
 		String encrypt2Hex = cipher.encrypt2Hex(info);
@@ -209,7 +209,7 @@ public class AES256Cipher extends AbstractCipher implements Encrypt, Decrypt {
 		System.out.println(decrypt2utf8b64);
 		System.out.println(decrypt2utf8b64.equals(infob64));
 
-		System.out.println("==============");
+		System.out.println("==============");*/
 
 	}
 

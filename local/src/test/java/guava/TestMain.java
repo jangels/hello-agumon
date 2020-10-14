@@ -15,13 +15,7 @@ public class TestMain {
 
     public static void main(String[] args) throws ParseException, InterruptedException {
 
-        for(int i = 0;i<1000000;i++){
-            for(int j = 0; j<10000;j++){
-                TestMain obj = new TestMain();
-            }
-            System.out.println(i);
-            Thread.sleep(1);
-        }
+       print007Date("2020");
     }
 
     public static void print007Date(String firstDay) throws ParseException {

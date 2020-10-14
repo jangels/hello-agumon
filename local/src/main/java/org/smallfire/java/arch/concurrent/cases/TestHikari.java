@@ -1,5 +1,13 @@
 package org.smallfire.java.arch.concurrent.cases;
 
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
+
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
 public class TestHikari {
 
     public static void main(String[] args) {
@@ -38,13 +46,14 @@ public class TestHikari {
             close(conn);
         }
 //关闭资源
-        void close (AutoCloseable rs){
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
+
+    }
+    static void close(AutoCloseable rs){
+        if (rs != null) {
+            try {
+                rs.close();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }

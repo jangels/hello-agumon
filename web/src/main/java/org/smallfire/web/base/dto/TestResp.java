@@ -1,4 +1,4 @@
-package org.smallfire.web.dto;
+package org.smallfire.web.base.dto;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

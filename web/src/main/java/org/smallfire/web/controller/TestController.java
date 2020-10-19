@@ -3,8 +3,8 @@ package org.smallfire.web.controller;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import org.smallfire.web.dto.TestReq;
-import org.smallfire.web.dto.TestResp;
+import org.smallfire.web.base.dto.TestReq;
+import org.smallfire.web.base.dto.TestResp;
 import org.springframework.web.bind.annotation.*;
 
 /**

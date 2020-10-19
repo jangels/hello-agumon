@@ -3,6 +3,7 @@ package org.smallfire.web;
 import com.alibaba.nacos.api.annotation.NacosInjected;
 import com.alibaba.nacos.api.naming.NamingService;
 import com.alibaba.nacos.spring.context.annotation.config.NacosPropertySource;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.net.Inet4Address;
 
 @SpringBootApplication(scanBasePackages = "org.smallfire.web")
+@MapperScan({"org.smallfire.web.base.mapper"})
 @NacosPropertySource(dataId = "AGUMON-DEV.yml", groupId = "DEFAULT_GROUP", autoRefreshed = true)
 public class AgumonApplication implements CommandLineRunner {
 

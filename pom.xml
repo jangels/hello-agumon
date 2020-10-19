@@ -3,6 +3,12 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.4.RELEASE</version>
+        <relativePath/>
+    </parent>
 
     <groupId>org.smallfire</groupId>
     <artifactId>hello-agumon</artifactId>
@@ -10,7 +16,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <springframework-version>4.3.3.RELEASE</springframework-version>
+        <springframework-version>5.2.9.RELEASE</springframework-version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <rocketmq.version>4.1.0-incubating</rocketmq.version>
     </properties>
@@ -24,14 +30,13 @@
             <scope>compile</scope>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->RR
+        <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <version>1.0.60</version>
             <scope>test</scope>
         </dependency>
-
 
         <dependency>
             <groupId>cn.hutool</groupId>
@@ -42,7 +47,7 @@
         <dependency>
             <groupId>com.github.rholder</groupId>
             <artifactId>guava-retrying</artifactId>
-            <version>2.0.0</version>R
+            <version>2.0.0</version>
         </dependency>
 
 
@@ -123,7 +128,7 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.0</version>
+            <version>3.8.1</version>
         </dependency>
         <dependency>
             <groupId>commons-codec</groupId>
@@ -195,6 +200,7 @@
 
     <modules>
         <module>local</module>
+        <module>web</module>
     </modules>
 
     <build>

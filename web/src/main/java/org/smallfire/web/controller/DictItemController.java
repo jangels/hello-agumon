@@ -23,7 +23,7 @@ import java.util.List;
  * @author 144637
  * @since 2019-04-29
  */
-@Api(tags = "10-字典项接口")
+@Api(tags = "03-字典项接口")
 @RestController
 @RequestMapping("/dictItem")
 public class DictItemController {

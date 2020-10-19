@@ -24,7 +24,7 @@ import java.util.List;
  * @author 144637
  * @since 2019-04-29
  */
-@Api(tags = "09-字典类型接口")
+@Api(tags = "02-字典类型接口")
 @RestController
 @RequestMapping("/dictType")
 public class DictTypeController {

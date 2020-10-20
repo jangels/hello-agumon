@@ -62,6 +62,13 @@
             <version>${nacos.version}</version>
         </dependency>
 
+        <!-- 面向切面spring aop -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+
+
     </dependencies>
 
     <build>

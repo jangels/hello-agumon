@@ -3,7 +3,7 @@
 <mapper namespace="com.zhengtoon.framework.dict.mapper.ZtDictItemMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="org.smallfire.web.base.domain.DictItem">
+    <resultMap id="BaseResultMap" type="org.smallfire.server.base.domain.DictItem">
         <result column="dict_type_code" property="dictTypeCode" />
         <result column="dict_code" property="dictCode" />
         <result column="dict_value" property="dictValue" />

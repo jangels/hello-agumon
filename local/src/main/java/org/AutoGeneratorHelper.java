@@ -66,7 +66,6 @@ public class AutoGeneratorHelper {
         // 表名生成策略
         strategy.setNaming(NamingStrategy.underline_to_camel);
         // 需要生成的表
-//        strategy.setInclude(new String[]{"component", "dict", "dict_item", "frame_template", "page_template", "plugin", "project", "project_catalog", "project_database", "project_extend", "project_interface", "project_interface_request", "project_interface_response", "project_member", "project_page", "project_scheme", "project_scheme_extent", "project_version", "user"});
         strategy.setInclude(new String[]{"new_video"});
         strategy.setRestControllerStyle(true);
         strategy.setEntityLombokModel(true);
@@ -75,7 +74,7 @@ public class AutoGeneratorHelper {
         // 包配置
         PackageConfig pc = new PackageConfig();
         // 自定义包路径
-        pc.setParent("com.cos.open.platform");
+        pc.setParent("org.smallfire");
         // 这里是控制器包名，默认
         pc.setController("controller");
         pc.setEntity("data.entity");

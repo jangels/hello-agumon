@@ -1,5 +1,7 @@
 package org.smallfire.server.web.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -22,5 +24,19 @@ public class TestController {
             @RequestBody TestReq req) {
 
         return new TestResp("Hello! " + req.getName());
+    }
+
+    @ApiOperation(value = "测试数字", httpMethod = "POST", notes = "测试数字")
+    @RequestMapping(path = "/testResult", method = RequestMethod.GET)
+    @ResponseBody
+    public String test(@ApiParam(required = true, name = "输入", value = "输入")
+                               String data) {
+
+        JSONObject jsonObject = JSON.parseObject(data);
+        String data1 = jsonObject.getString("data");
+
+        String binaryStr = Integer.toBinaryString(Integer.valueOf(data1));
+
+        return binaryStr;
     }
 }

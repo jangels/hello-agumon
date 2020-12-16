@@ -1,15 +1,14 @@
+import cn.hutool.core.util.HexUtil;
+import cn.hutool.crypto.Mode;
+import cn.hutool.crypto.Padding;
 import cn.hutool.crypto.SecureUtil;
 import cn.hutool.crypto.symmetric.AES;
 import lombok.Data;
-import org.apache.commons.codec.digest.DigestUtils;
-import org.apache.shiro.crypto.hash.Hash;
-import org.bouncycastle.jce.provider.JCEMac;
-import org.junit.Test;
 
 import javax.crypto.SecretKey;
-import java.lang.annotation.Annotation;
-import java.util.*;
-import java.util.stream.IntStream;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 @Data
 public class TestMain {
@@ -19,23 +18,24 @@ public class TestMain {
 
     public static void main(String[] args) {
 
-
-        String property = System.getProperty("file.encoding");
-        System.out.println(property);
-        System.out.println(1_0000);
-
-        String userName = "userName 值"; String cardNo = "cardNo 值";
-        String key = "78a0e4f3980117f135217cf3b3f0970d";
-
+        String userName = "userName 值";
+        String cardNo = "cardNo 值";
 
         SecretKey secretKey = SecureUtil.generateKey("AES");
-        System.out.println("密钥" + new String(secretKey.getEncoded()));
+        byte[] encoded = secretKey.getEncoded();
+        String secretKeyHex = HexUtil.encodeHexStr(encoded);
+        System.out.println("密钥: " + secretKeyHex);
 
+        byte[] keyRaw = HexUtil.decodeHex(secretKeyHex);
+//        AES aes = SecureUtil.aes(keyRaw);
+        AES aes = new AES(Mode.ECB, Padding.PKCS5Padding, "0CoJUm6Qyw8W8jud".getBytes());
+        String encryptUserName = aes.encryptHex(userName);
+        System.out.println("加密 userName 结果-->" + encryptUserName);
+        String encryptCardNo = aes.encryptHex(cardNo);
+        System.out.println("加密 cardNo 结果-->" + encryptCardNo);
 
-        AES aes = SecureUtil.aes(key.getBytes());
-        String encryptUserName = aes.encryptHex(userName); System.out.println("加密 userName 结果-->" + encryptUserName);
-        String encryptCardNo = aes.encryptHex(cardNo); System.out.println("加密 cardNo 结果-->" + encryptCardNo);
-
+        String s = aes.decryptStr(encryptCardNo);
+        System.out.println("解密结果-->" + s);
 
      /*   Annotation[] annotations = new TestMain().getClass().getDeclaredAnnotations();
         System.out.println(annotations);
@@ -65,7 +65,7 @@ public class TestMain {
     }
 }
 
- class StreamParallelDemo {
+class StreamParallelDemo {
     public static void main(String[] args) {
         System.out.println(String.format("本计算机的核数：%d", Runtime.getRuntime().availableProcessors()));
 

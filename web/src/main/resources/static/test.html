@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+    <title>测试页</title>
+
+    <script>
+        function goToHealth() {
+            var data = document.getElementById("data").value;
+            var jsonObj = {data: data};
+            var jsonStr = JSON.stringify(jsonObj);
+
+            $.get("/testResult?data=" + encodeURIComponent(jsonStr), function(data) {
+                document.getElementById("result").innerHTML=data;
+            });
+
+
+        }
+    </script>
+
+</head>
+<body>
+<div>
+    <div> 输入数字<input type="text" name="name" id="data" value=""></div>
+    <button onclick="goToHealth()">test</button>
+</div>
+
+二进制结果:
+<div id="result">
+
+</div>
+
+</body>
+</html> 

@@ -12,7 +12,7 @@ import java.net.URL;
 public class TestBase64 {
 
     public static void main(String[] args) {
-        System.out.println(imgBase64("https://scpic.chinaz.net/files/pic/pic9/202012/bpic21997.jpg"));
+        System.out.println(imgBase64("https://service.beijingtoon.com/cstoon-health-query/images/404.jpg"));
     }
 
 

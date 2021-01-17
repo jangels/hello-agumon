@@ -21,10 +21,12 @@ public class HBaseUtils {
         Configuration configuration = HBaseConfiguration.create();
         configuration.set("hbase.zookeeper.property.clientPort", "2181");
         configuration.set("zookeeper.znode.parent", "/hbase");
-        configuration.set("hbase.master","localhost:60000");
+//        configuration.set("hbase.master","192.168.199.116:60000");
+        configuration.set("hbase.master","172.31.240.198:60000");
 
         // 如果是集群 则主机名用逗号分隔
-        configuration.set("hbase.zookeeper.quorum", "localhost");
+//        configuration.set("hbase.zookeeper.quorum", "192.168.199.135");
+        configuration.set("hbase.zookeeper.quorum", "172.31.240.176");
         try {
             connection = ConnectionFactory.createConnection(configuration);
         } catch (IOException e) {

@@ -108,7 +108,7 @@ public class HBaseUtilsTest {
             ResultScanner scanner = HBaseUtils.getScanner(TABLE_NAME);
             if (scanner != null) {
                 scanner.forEach(result -> System.out.println(Bytes.toString(result.getRow()) + "->" + Bytes
-                        .toString(result.getValue(Bytes.toBytes(STUDENT), Bytes.toBytes("ngame")))));
+                        .toString(result.getValue(Bytes.toBytes(STUDENT), Bytes.toBytes("name")))));
                 scanner.close();
             }
         }

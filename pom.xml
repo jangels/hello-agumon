@@ -16,11 +16,11 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <springframework-version>5.2.9.RELEASE</springframework-version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <rocketmq.version>4.1.0-incubating</rocketmq.version>
-        <mybatis-plus.version>3.3.1</mybatis-plus.version>
-    </properties>
+    <springframework-version>5.2.9.RELEASE</springframework-version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <rocketmq.version>4.1.0-incubating</rocketmq.version>
+    <mybatis-plus.version>3.3.1</mybatis-plus.version>
+</properties>
 
     <dependencies>
 
@@ -216,11 +216,24 @@
             <version>8.0.20</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>5.2.9.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+        </dependency>
+
     </dependencies>
 
     <modules>
         <module>local</module>
-        <module>web</module>
     </modules>
 
     <build>

@@ -36,6 +36,7 @@ public class DictTypeController {
     @ApiOperation(value = "根据类型编码获取字典类型")
     public Result<DictType> getDictTypeByCode(@RequestBody TypeByCodeDto dto) {
         DictType typeEntity = dictTypeService.getDictTypeByCode(dto.getDictTypeCode());
+
         return Result.buildOkData(typeEntity);
     }
 

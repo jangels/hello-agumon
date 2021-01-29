@@ -2,19 +2,26 @@
 server:
   port: 8080
 spring:
+  profiles:
+    active: prod
   application:
-    name: Agumon
+    name: hello-agumon
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost/agumon
     username: root
     password: root
-
-#nacos:
-#  config:
-#    server-addr: 127.0.0.1:8848
-#  discovery:
-#    server-addr: 127.0.0.1:8848
+  boot:
+    admin:
+      client:
+        url: http://localhost:8080/admin
 
 mybatis:
   config-locations: classpath:/mapper/mybatis-config.xml

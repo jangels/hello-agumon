@@ -233,7 +233,7 @@
     </dependencies>
 
     <modules>
-        <module>local</module>
+        <module>shapefire</module>
     </modules>
 
     <build>

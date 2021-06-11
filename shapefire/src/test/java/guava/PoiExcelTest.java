@@ -35,7 +35,7 @@ public class PoiExcelTest {
             row.createCell(1).setCellValue("刘振华"+i);
        }
 
-        File xlsFile = new File("/Users/liuzhenhua/excel/test.xls");
+        File xlsFile = new File("/Users/lzh/excel/test.xls");
         FileOutputStream xlsStream = new FileOutputStream(xlsFile);
         hssfWorkbook.write(xlsStream);
 

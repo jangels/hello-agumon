@@ -11,7 +11,7 @@ public class PrintFiles {
 
     public static void main(String[] args) throws IOException {
 
-        Files.walkFileTree(Paths.get("/Users/liuzhenhua/lzh/shell"), new SimpleFileVisitor<Path>() {
+        Files.walkFileTree(Paths.get("/Users/lzh/lzh/shell"), new SimpleFileVisitor<Path>() {
 
             @Override
             public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {

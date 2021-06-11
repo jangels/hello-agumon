@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 /**
  * 拦截session参数并校验
  *
- * @author liuzhenhua
+ * @author lzh
  * @since 2017-05-09
  */
 @Component

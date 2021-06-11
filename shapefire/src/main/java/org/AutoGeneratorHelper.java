@@ -55,8 +55,8 @@ public class AutoGeneratorHelper {
         dsc.setDbType(DbType.MYSQL);
         dsc.setTypeConvert(new MySqlTypeConvert());
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
-        dsc.setUsername("syswin");
-        dsc.setPassword("syswin");
+        dsc.setUsername("lzh");
+        dsc.setPassword("lzh");
         dsc.setUrl("jdbc:mysql://172.28.5.92:3306/cos_open_platform?useUnicode=true&characterEncoding=utf-8");
         mpg.setDataSource(dsc);
 

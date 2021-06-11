@@ -1,5 +1,5 @@
 /*
- *  Copyright (c) 2019-2020, syswin (syswin0813@gmail.com).
+ *  Copyright (c) 2019-2020, lzh (lzh0813@gmail.com).
  *  <p>
  *  Licensed under the GNU Lesser General Public License 3.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -31,7 +31,7 @@ import java.io.Serializable;
  * 响应信息主体
  *
  * @param <T>
- * @author syswin
+ * @author lzh
  */
 @ToString
 @Accessors(chain = true)

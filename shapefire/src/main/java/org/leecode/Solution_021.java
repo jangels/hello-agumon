@@ -16,26 +16,25 @@ public class Solution_021 {
      */
     public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
 
-        // null?
-        // max? min?
-        // special?
-        // time space
-        // 并发?
         ListNode temp = new ListNode(0);
+
         ListNode prev = temp;
 
-        while(l1 != null && l2 != null){
-            if(l1.val < l2.val){
-                prev.next = l1 ;
+        while (l1 != null && l2 != null) {
+            if (l1.val < l2.val) {
+                prev.next = l1;
                 l1 = l1.next;
-            }else{
-                prev.next = l2 ;
-                l2 = l2.next ;
+            } else {
+                prev.next = l2;
+                l2 = l2.next;
             }
-            prev = prev.next ;
+
+            prev = prev.next;
         }
 
-        return temp.next ;
+        prev.next = l1 == null ? l2 : l1;
+
+        return temp.next;
     }
 
     public static void printNode(ListNode head) {

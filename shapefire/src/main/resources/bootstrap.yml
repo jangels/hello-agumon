@@ -1,6 +1,6 @@
 
 server:
-  port: 8080
+  port: 8081
 spring:
   profiles:
     active: prod
@@ -15,9 +15,12 @@ spring:
         file-extension: yaml
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost/agumon
+    url: jdbc:mysql://localhost/agumon?rewriteBatchedStatements=true
     username: root
     password: root
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 10
   boot:
     admin:
       client:
@@ -38,5 +41,8 @@ mybatis-plus:
       logic-not-delete-value: 0
   configuration:
     map-underscore-to-camel-case: true
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
+logging:
+  level:
+    org.web: error

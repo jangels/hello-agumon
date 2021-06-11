@@ -9,25 +9,21 @@ import java.util.Map;
 public class Solution_003 {
 
     public int lengthOfLongestSubstring(String s) {
-       Map<Character, Integer> map = new HashMap<>();
+        Map<Character, Integer> map = new HashMap<>();
 
-       int len=0, left = 0, right=0;
-       while(right<s.length()){
-           char c = s.charAt(right);
-           if(map.containsKey(c)){
-               left = Math.max(left,map.get(c)+1);
-           }
+        int res = 0, left = 0, right = 0;
 
-           map.put(c,right++);
+        while (right < s.length()) {
+            char c = s.charAt(right);
+            if (map.containsKey(c)) {
+                left = Math.max(left, map.get(c) + 1);
+            }
 
-           len = Math.max(len,right-left);
-       }
+            map.put(c, right++);
+            res = Math.max(res, right - left);
+        }
 
-       for(int i = left; i<right; i++){
-           System.out.println(s.charAt(i));
-       }
-
-       return len ;
+        return res;
     }
 
     public static void main(String[] args) {

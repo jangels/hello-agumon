@@ -47,9 +47,9 @@ public class DictItemController {
 
     @RequestMapping(value = "/getItemByTypeCodeAndDictCode", method = RequestMethod.POST)
     @ApiOperation(value = "根据类型编码和字典项编码获取字典项")
-    public Result<DictItem> getItemByTypeCodeAndDictCode(@RequestBody ItemByDictCodeDto dto) {
-        DictItem itemEntity = dictItemService.getDictItemByTypeCodeAndDictCode(dto.getDictTypeCode(), dto.getDictCode());
-        return Result.buildOkData(itemEntity);
+    public Result<List<DictItem>> getItemByTypeCodeAndDictCode(@RequestBody ItemByDictCodeDto dto) {
+        List<DictItem> list = dictItemService.getDictItemByTypeCodeAndDictCode(dto.getDictTypeCode(), dto.getDictCode());
+        return Result.buildOkData(list);
     }
 
     @RequestMapping(value = "/getItemById", method = RequestMethod.POST)
@@ -70,6 +70,12 @@ public class DictItemController {
     @ApiOperation(value = "保存和更新字典项")
     public Result<DictItem> save(@RequestBody DictItemDto dto) {
         return Result.buildOkData(dictItemService.save(dto));
+    }
+
+    @RequestMapping(value = "/batchSave", method = RequestMethod.POST)
+    @ApiOperation(value = "批量插入2000万数据")
+    public Result<DictItem> batchSave(@RequestBody DictItemDto dto) {
+        return Result.buildOkData(dictItemService.batchSave(dto));
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST)

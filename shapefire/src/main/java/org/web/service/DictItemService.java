@@ -39,7 +39,7 @@ public interface DictItemService extends IService<DictItem> {
      * @param dictCode 字典项编码
      * @return DictItem 字典项
      */
-    DictItem getDictItemByTypeCodeAndDictCode(String typeCode, String dictCode);
+    List<DictItem> getDictItemByTypeCodeAndDictCode(String typeCode, String dictCode);
 
     /**
      * 根据字典项id获取字典项
@@ -70,4 +70,5 @@ public interface DictItemService extends IService<DictItem> {
      */
     DictItem delete(DictItemDto DictItemDto);
 
+    boolean batchSave(DictItemDto dto);
 }

@@ -35,23 +35,23 @@ public class Solution_141 {
      */
     public boolean hasCycle2(ListNode head) {
 
-       if(head == null || head.next == null){
-           return false;
-       }
+        if (head == null || head.next == null) {
+            return false;
+        }
 
-       ListNode slow = head.next ;
-       ListNode fast = head.next.next ;
-       while(slow!=fast){
+        ListNode slow = head.next;
+        ListNode fast = head.next.next;
 
-           if(fast ==null || fast.next == null){
-               return false ;
-           }
-           slow = slow.next ;
-           fast = fast.next.next ;
+        while (slow != fast) {
 
-       }
+            if (fast == null || fast.next == null) {
+                return false;
+            }
+            slow = slow.next;
+            fast = fast.next.next;
+        }
 
-       return true ;
+        return true;
     }
 
     public static void main(String[] args) {

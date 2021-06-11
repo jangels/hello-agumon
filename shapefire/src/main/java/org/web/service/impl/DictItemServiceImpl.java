@@ -29,7 +29,7 @@ public class DictItemServiceImpl extends ServiceImpl<DictItemMapper, DictItem> i
     @Override
     public List<DictItem> getItemListByTypeCode(String typeCode) {
 
-        QueryWrapper wrapper= Wrappers.query();
+        QueryWrapper wrapper = Wrappers.query();
         wrapper.eq(DictItem.DICT_TYPE_CODE, typeCode);
         wrapper.orderByAsc("create_time");
         List<DictItem> itemEntityList = super.list(wrapper);
@@ -47,13 +47,13 @@ public class DictItemServiceImpl extends ServiceImpl<DictItemMapper, DictItem> i
     }
 
     @Override
-    public DictItem getDictItemByTypeCodeAndDictCode(String typeCode, String dictCode) {
-        QueryWrapper wrapper= Wrappers.query();
+    public List<DictItem> getDictItemByTypeCodeAndDictCode(String typeCode, String dictCode) {
+        QueryWrapper wrapper = Wrappers.query();
         wrapper.eq(DictItem.DICT_TYPE_CODE, typeCode);
         wrapper.eq(DictItem.DICT_CODE, dictCode);
         wrapper.orderByAsc("create_time");
-        DictItem itemEntity = super.getOne(wrapper);
-        return itemEntity;
+        List<DictItem> list = super.list(wrapper);
+        return list;
     }
 
     @Override
@@ -63,7 +63,8 @@ public class DictItemServiceImpl extends ServiceImpl<DictItemMapper, DictItem> i
 
     @Override
     public List<DictItem> getListByTypeCodeAndParentCode(String typeCode, String parentDictCode) {
-         QueryWrapper wrapper= Wrappers.query();;
+        QueryWrapper wrapper = Wrappers.query();
+        ;
         wrapper.eq(DictItem.DICT_TYPE_CODE, typeCode);
         wrapper.eq(DictItem.DICT_PARENT_CODE, parentDictCode);
         wrapper.orderByAsc("create_time");
@@ -87,5 +88,23 @@ public class DictItemServiceImpl extends ServiceImpl<DictItemMapper, DictItem> i
         DictItem.setDeleteFlag(1);
         super.saveOrUpdate(DictItem);
         return DictItem;
+    }
+
+    @Override
+    public boolean batchSave(DictItemDto dto) {
+
+        for (int i = 0; i < 2000; i++) {
+            List list = new ArrayList();
+            for(int j=0;j<10000;j++){
+                DictItem DictItem = new DictItem();
+                BeanUtils.copyProperties(dto, DictItem);
+                DictItem.setDictCode(j + "");
+                DictItem.setDictValue(j + "");
+                list.add(DictItem) ;
+            }
+            super.saveBatch(list);
+        }
+
+        return true;
     }
 }

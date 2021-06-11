@@ -12,24 +12,16 @@ public class Solution_206 {
      */
     public static ListNode reverseList(ListNode head) {
 
-        // null?
-        // max? min?
-        // 特殊?
-        // 时间 , 空间?
-        // 线程?
-
-       // 1> 2> 3
         ListNode prev = null ;
         ListNode next ;
-        ListNode curr = head ;
+        ListNode curr = head;
 
-        while(curr != null){
+        while(curr !=null){
             next = curr.next ;
             curr.next = prev ;
             prev = curr ;
             curr = next ;
         }
-
         return prev ;
     }
 

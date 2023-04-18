@@ -10,7 +10,6 @@ import java.util.concurrent.TimeUnit;
 
 @SpringBootApplication
 @MapperScan({"org.web.base.mapper"})
-
 @EnableDiscoveryClient
 public class AgumonApplication {
 

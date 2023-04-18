@@ -5,6 +5,7 @@ import lombok.Data;
 import org.junit.Test;
 
 import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -99,8 +100,11 @@ public class LambdaExpressionTest {
     @Test
     public void testStream1() {
         Stream<String> stream = Stream.of("I", "love", "you", "too", "too");
+//        stream.distinct().forEach(str -> System.out.println(str));
         stream.distinct()
-                .forEach(str -> System.out.println(str));
+                .forEach(System.out::println);
+        List<String> collect = stream.collect(Collectors.toList());
+        System.out.println(collect);
     }
 
     @Test

@@ -64,4 +64,5 @@ public class OptionalStreamTest {
     public void testStream() {
         Stream.of("i", "love", "u").forEach(System.out::println);
     }
+
 }

@@ -18,6 +18,7 @@ public class Producer {
         producer.setNamesrvAddr(Consumer.ADDR);
         producer.setVipChannelEnabled(false);
 
+
         //为避免程序启动的时候报错，添加此代码，可以让rocketMq自动创建topickey
         producer.setCreateTopicKey("AUTO_CREATE_TOPIC_KEY");
         producer.start();

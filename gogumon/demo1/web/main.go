@@ -13,9 +13,16 @@ import (
 func createRouter() *mux.Router {
 	r := mux.NewRouter()
 
+	r.HandleFunc("/startup", func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusOK)
+		fmt.Fprint(w, "你好啊, 傻逼! \nThis is the first line code of GaiYao. \nRemember today. 2023/08/09\n")
+		fmt.Println("接口路径-->:", r.RequestURI)
+	}).Methods(http.MethodGet)
+
+
 	r.HandleFunc("/healthz", func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
-		fmt.Fprint(w, "OK")
+		fmt.Fprint(w, "ok.")
 		fmt.Println("接口路径-->:", r.RequestURI)
 	}).Methods(http.MethodGet)
 
@@ -52,7 +59,7 @@ func main() {
 
 	stop := createSignalHandler(server)
 
-	fmt.Println("Starting the server...")
+	fmt.Println("Server started, http://localhost:8080/startup...")
 
 	if err := server.ListenAndServe(); err != http.ErrServerClosed {
 		fmt.Println("Server listen error:", err)

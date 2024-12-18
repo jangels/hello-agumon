@@ -19,3 +19,5 @@
 > 主技能:
 > 小型火焰（Baby flame）：从口中吐出火焰。
 
+git config --global --unset http.proxy
+git config --global --unset https.proxy

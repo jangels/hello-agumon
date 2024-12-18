@@ -55,9 +55,9 @@ public class AutoGeneratorHelper {
         dsc.setDbType(DbType.MYSQL);
         dsc.setTypeConvert(new MySqlTypeConvert());
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
-        dsc.setUsername("ttyc_57");
-        dsc.setPassword("OClgaa6YD!Rylnb5");
-        dsc.setUrl("jdbc:mysql://10.100.67.120:6033/cashier?useUnicode=true&characterEncoding=utf-8");
+        dsc.setUsername("");
+        dsc.setPassword("");
+        dsc.setUrl("jdbc:mysql://:6033/?useUnicode=true&characterEncoding=utf-8");
         mpg.setDataSource(dsc);
 
         // 策略配置
@@ -66,7 +66,7 @@ public class AutoGeneratorHelper {
         // 表名生成策略
         strategy.setNaming(NamingStrategy.underline_to_camel);
         // 需要生成的表
-        strategy.setInclude(new String[]{"order_card_schedule"});
+        strategy.setInclude(new String[]{""});
         strategy.setRestControllerStyle(true);
         strategy.setEntityLombokModel(true);
         strategy.setEntityColumnConstant(true);
@@ -74,7 +74,7 @@ public class AutoGeneratorHelper {
         // 包配置
         PackageConfig pc = new PackageConfig();
         // 自定义包路径
-        pc.setParent("com.songguo.user.cycle.orderdao.cycle");
+        pc.setParent("");
         // 这里是控制器包名，默认
         pc.setController("controller");
         pc.setEntity("data.entity");

@@ -1,7 +1,9 @@
 import tensorflow as tf
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense
-from tensorflow.keras.optimizers import Adam
+
+# tf 2.17.0 keras: 3.6.0
+from keras.api.models import Sequential
+from keras.api.layers import Dense
+from keras.api.optimizers import Adam
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 import numpy as np

@@ -1,4 +1,4 @@
-package org.common.utils.http;
+package org.common.utils;
 
 import okhttp3.*;
 import okhttp3.FormBody.Builder;

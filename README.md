@@ -2,7 +2,8 @@
 
 
 
-![Agumon](https://upload-images.jianshu.io/upload_images/5377881-25a31484ebe5e387.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+<img width="252" height="387" alt="微信图片_20260904174033_38_3" src="https://github.com/user-attachments/assets/b74b9f63-b27a-4f47-bc09-927f9f31a1cb" />
+
 
 
 Personal Project
